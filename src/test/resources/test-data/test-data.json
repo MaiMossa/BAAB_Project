@@ -1,0 +1,41 @@
+{
+  "registeration": {
+    "name": "testname_",
+    "email": "testemail_",
+    "titleMale": "Mr",
+    "titleFemale": "Mrs",
+    "password": "testpassword12345@",
+    "day": "1",
+    "month": "January",
+    "year": "2000",
+    "firstName": "testfirstname_",
+    "lastName": "testlastname_",
+    "companyName": "testcompany",
+    "address1": "testaddress1",
+    "address2": "testaddress2",
+    "country": "India",
+    "state": "teststate",
+    "city": "testcity",
+    "zipCode": "12345",
+    "mobileNumber": "1234567890"
+  },
+  "login": {
+    "valid": {
+      "email": "test1@drmail.in",
+      "password": "ashraf12345",
+      "name": "ashraf test"
+    },
+    "inValid": {
+      "email": "invalidEmail@gmail.com",
+      "password": "invalidPassword"
+    }
+  },
+  "contactUs": {
+    "name": "testname",
+    "email": "testemail@gmail.com",
+    "subject": "testsubject",
+    "message": "testmessage",
+    "filePath": "src/test/resources/test-data/testfile.txt",
+    "successMessage": "Success! Your details have been submitted successfully."
+  }
+}
