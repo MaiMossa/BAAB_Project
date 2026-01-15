@@ -19,9 +19,7 @@ public class BaseTest implements WebDriverProvider {
     public void beforeClass() {
         testData = new JsonUtils("test-data");
         driver = new GUIDriver();
-        new NavigationBarPage(driver)
-                .navigateToHomePage()
-                .isHomePageDisplayed();
+
     }
 
     @AfterClass
