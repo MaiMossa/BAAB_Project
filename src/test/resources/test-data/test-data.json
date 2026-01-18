@@ -1,0 +1,12 @@
+{
+  "login": {
+    "valid": {
+      "email": "partner@aliaict.com",
+      "password": "Haida@123#"
+    },
+    "inValid": {
+      "email": "invalidEmail@gmail.com",
+      "password": "invalidPassword"
+    }
+  }
+}
