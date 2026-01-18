@@ -18,6 +18,8 @@ public class SoftAssertions extends BaseAssertions {
     public static void AssertIfUsed() {
         if (!used) return;
         assertAll();
+        // if soft assertion is used , it will work
+        // if sof assertion not used, will not work
     }
 
 

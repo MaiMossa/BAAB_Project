@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import utils.ElementActions;
 import utils.Waits;
-
+//Hard Assertion
 public class Assertions extends BaseAssertions {
 
     public Assertions(ElementActions elementActions, Waits wait, WebDriver driver) {
