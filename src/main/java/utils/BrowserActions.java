@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class BrowserActions {
@@ -115,4 +116,36 @@ public class BrowserActions {
         driver.close();
         LogUtils.info("Close current Window");
     }
+    /**
+     * Switch to tab by index
+     * @param index 0-based index of tab
+     */
+    public void switchToTab(int index) {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        if(index >= 0 && index < tabs.size()) {
+            driver.switchTo().window(tabs.get(index));
+            LogUtils.info("Switched to tab index: " + index);
+        } else {
+            throw new RuntimeException("Tab index out of range: " + index);
+        }
+    }
+
+    /**
+     * Switch to last tab opened
+     */
+    public void switchToLastTab() {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabs.size() - 1));
+        LogUtils.info("Switched to last tab");
+    }
+
+    /**
+     * Switch to first tab
+     */
+    public void switchToFirstTab() {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(0));
+        LogUtils.info("Switched to first tab");
+    }
 }
+

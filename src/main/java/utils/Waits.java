@@ -3,6 +3,7 @@ package utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -173,5 +174,19 @@ public class Waits {
     public void implicitlyWait() {
         driver.manage().timeouts().
                 implicitlyWait(Duration.ofSeconds(timeOut));
+    }
+
+    public void waitForElementTextNotToContain(By locator, String text) {
+        FluentWait<WebDriver> fluentWait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(timeOut))
+                .pollingEvery(Duration.ofMillis(500))
+                .ignoring(org.openqa.selenium.NoSuchElementException.class);
+
+        fluentWait.until(d -> {
+            WebElement element = d.findElement(locator);
+            String value = element.getAttribute("value");
+            if (value == null) value = element.getText(); // Fallback to text
+            return value != null && !value.toLowerCase().contains(text.toLowerCase()) && !value.isEmpty();
+        });
     }
 }

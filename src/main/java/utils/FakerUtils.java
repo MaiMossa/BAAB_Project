@@ -2,6 +2,10 @@ package utils;
 
 import com.github.javafaker.Faker;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class FakerUtils {
     private FakerUtils() {
         super();
@@ -50,6 +54,39 @@ public class FakerUtils {
     public static String generateText(int minLength, int maxLength) {
         return new Faker().lorem().characters(minLength, maxLength);
     }
+    public static String generateStrongPassword() {
+        int length = 12;
+        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String lower = "abcdefghijklmnopqrstuvwxyz";
+        String numbers = "0123456789";
+        String special = "!@#$%^&*()-_=+<>?";
+
+        String allChars = upper + lower + numbers + special;
+        StringBuilder password = new StringBuilder();
+
+        password.append(upper.charAt((int)(Math.random() * upper.length())));
+        password.append(lower.charAt((int)(Math.random() * lower.length())));
+        password.append(numbers.charAt((int)(Math.random() * numbers.length())));
+        password.append(special.charAt((int)(Math.random() * special.length())));
+
+        for (int i = 4; i < length; i++) {
+            password.append(allChars.charAt((int)(Math.random() * allChars.length())));
+        }
+
+        // Random shuffle
+        List<Character> pwdChars = password.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toList());
+        Collections.shuffle(pwdChars);
+
+        StringBuilder finalPassword = new StringBuilder();
+        for (char c : pwdChars) {
+            finalPassword.append(c);
+        }
+
+        return finalPassword.toString();
+    }
+
 
 
 }
