@@ -8,5 +8,10 @@
       "email": "invalidEmail@gmail.com",
       "password": "invalidPassword"
     }
+  },
+  "signUp": {
+    "valid": {
+      "countryCode": "Egypt"
+    }
   }
 }
