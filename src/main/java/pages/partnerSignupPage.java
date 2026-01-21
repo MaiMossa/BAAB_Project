@@ -15,7 +15,6 @@ public class partnerSignupPage {
         this.driver = driver;
     }
 
-    // ========== Locators ==========
     private final By signup = By.xpath("//a[normalize-space()='Sign Up']");
     private final By email = By.id("Input_EmailAddress");
     private final By continueBtn = By.cssSelector("button[type='submit']");
@@ -29,8 +28,10 @@ public class partnerSignupPage {
     private final By password = By.id("password");
     private final By confirmPassword = By.id("confirmPassword");
     private final By createPassBTN = By.xpath("//button[normalize-space()='Create Password']");
+    private final By resendBtn = By.xpath("//button[contains(.,'Resend Confirmation Email')]");
+    private final By welcomeMsg = By.xpath("//h1[normalize-space()='Welcome']");
 
-    // ========== Actions ==========
+
     @Step("Click on Signup hyperlink")
     public partnerSignupPage navigateToSignUP() {
         driver.element().click(signup);
@@ -98,6 +99,17 @@ public class partnerSignupPage {
     @Step("Click Create Password Button")
     public partnerSignupPage clickCreatePass() {
         driver.element().click(createPassBTN);
-        return new partnerSignupPage(driver);
+        return this;
+    }
+
+    @Step("Click Resend Confirmation Email")
+    public partnerSignupPage clickResendConfirmationEmail() {
+        driver.element().click(resendBtn);
+        return this;
+    }
+    @Step("Assert Thank You message is displayed")
+    public partnerSignupPage assertThankYouMessageDisplayed() {
+        driver.validate().validateElementVisible(welcomeMsg);
+        return this;
     }
 }
