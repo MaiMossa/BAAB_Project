@@ -1,22 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.example</groupId>
     <artifactId>BAAB_Project</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-
-    <!-- ===================== PROPERTIES ===================== -->
+    <!--  ===================== PROPERTIES =====================  -->
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <testng.version>7.11.0</testng.version>
         <selenium.version>4.31.0</selenium.version>
         <surefire.version>3.5.3</surefire.version>
@@ -26,11 +18,9 @@
         <restassured.version>5.5.1</restassured.version>
         <jsonpath.version>2.9.0</jsonpath.version>
         <apache.poi.version>5.4.1</apache.poi.version>
-
         <suite.regression>src/test/suites/RegressionSuite.xml</suite.regression>
     </properties>
-
-    <!-- ===================== BUILD ===================== -->
+    <!--  ===================== BUILD =====================  -->
     <build>
         <plugins>
             <plugin>
@@ -43,16 +33,12 @@
                     </suiteXmlFiles>
                     <failIfNoTests>false</failIfNoTests>
                     <useFile>false</useFile>
-
-                    <argLine>
-                        -javaagent:C:/Projects/M2Repo/aspectjweaver-${aspectj.version}.jar
-                    </argLine>
+                    <argLine> -javaagent:C:/Projects/M2Repo/aspectjweaver-${aspectj.version}.jar </argLine>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <!-- ===================== DEPENDENCY MANAGEMENT ===================== -->
+    <!--  ===================== DEPENDENCY MANAGEMENT =====================  -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -64,25 +50,21 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <!-- ===================== DEPENDENCIES ===================== -->
+    <!--  ===================== DEPENDENCIES =====================  -->
     <dependencies>
-
-        <!-- Selenium -->
+        <!--  Selenium  -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-
-        <!-- TestNG -->
+        <!--  TestNG  -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
-
-        <!-- Allure -->
+        <!--  Allure  -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -91,22 +73,19 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
         </dependency>
-
-        <!-- AspectJ -->
+        <!--  AspectJ  -->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
-
-        <!-- REST Assured -->
+        <!--  REST Assured  -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>${restassured.version}</version>
         </dependency>
-
-        <!-- JSON -->
+        <!--  JSON  -->
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
@@ -117,29 +96,25 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
-
-        <!-- Apache POI -->
+        <!--  Apache POI  -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>${apache.poi.version}</version>
         </dependency>
-
-        <!-- Faker -->
+        <!--  Faker  -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
-
-        <!-- Commons IO -->
+        <!--  Commons IO  -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.19.0</version>
         </dependency>
-
-        <!-- Logging -->
+        <!--  Logging  -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId>
@@ -150,8 +125,7 @@
             <artifactId>log4j-core</artifactId>
             <version>2.24.3</version>
         </dependency>
-
-        <!-- Screen Recording -->
+        <!--  Screen Recording  -->
         <dependency>
             <groupId>ws.schild</groupId>
             <artifactId>jave-all-deps</artifactId>
@@ -162,29 +136,29 @@
             <artifactId>monte-screen-recorder</artifactId>
             <version>0.7.7.0</version>
         </dependency>
-
-        <!-- Mockito -->
+        <!--  Mockito  -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>5.17.0</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- Shutterbug -->
+        <!--  Shutterbug  -->
         <dependency>
             <groupId>com.assertthat</groupId>
             <artifactId>selenium-shutterbug</artifactId>
             <version>${shutterbug.version}</version>
         </dependency>
-
-        <!-- Allure Environment Writer -->
+        <!--  Allure Environment Writer  -->
         <dependency>
             <groupId>com.github.automatedowl</groupId>
             <artifactId>allure-environment-writer</artifactId>
             <version>1.0.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.mailslurp</groupId>
+            <artifactId>mailslurp-client-java</artifactId>
+            <version>17.0.0</version>
+        </dependency>
     </dependencies>
-
 </project>

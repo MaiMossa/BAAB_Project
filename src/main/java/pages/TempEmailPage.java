@@ -18,9 +18,9 @@ public class TempEmailPage {
     }
 
     private final By emailField = By.id("mail");
-    private final By emailRows = By.cssSelector(".inbox-dataList .title-subject");
-    private final By emailBodyCode = By.cssSelector(".inbox-data-content .code");
-
+    private final By emailRows = By.xpath("//a[normalize-space()='Confirm Email Address']");
+    private final By emailBodyCode = By.xpath("//a[contains(text(),'https://dev-identity.baab.com/Identity/Account/Par')]");
+    private final By refresh=By.id("click-to-refresh");
     @Step("Navigate to Temp Mail")
     public TempEmailPage navigateToTempEmail(String url){
         driver.browser().navigate(url);
@@ -33,6 +33,15 @@ public class TempEmailPage {
         // Wait until the "Loading" placeholder disappears from the value attribute
         waits.waitForElementTextNotToContain(emailField, "Loading");
         return driver.element().findElement(emailField).getAttribute("value");
+    }
+
+    @Step ("Check confirmation email")
+    public TempEmailPage checkValidationEmail(){
+        driver.element().click(refresh);
+        driver.element().click(emailRows);
+        driver.element().click(emailBodyCode);
+        return this;
+
     }
 
 
